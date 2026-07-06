@@ -1,2 +1,2 @@
-# C-digo_Python
+# Codigo_Python
 Lista de compras em python, no VS code
