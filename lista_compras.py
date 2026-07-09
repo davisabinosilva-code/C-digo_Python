@@ -49,7 +49,15 @@ class ListaComprasApp:
         self.txt_quantidade.grid(row=0, column=3, padx=5, pady=5)
 
         # Preço
-        tk.Label(frame_entrada, text="Preço: ", font=("Arial, 11"), bg="#f0f4f8", fg="#2c3e50").grid(row=0, column=4, padx=5, pady=5, sticky="e")
-        self.txt_quantidade = tk.Entry(frame_entrada, font=("Arial",11), widht=10, relief="solid", bd=1)
-        self.txt_quantidade.grid(row=0, column=5, padx=5, pady=5)
+        tk.Label(frame_entrada, text="Preço Unit. (R$): ", font=("Arial, 11"), bg="#f0f4f8", fg="#2c3e50").grid(row=0, column=4, padx=5, pady=5, sticky="e")
+        self.txt_preço = tk.Entry(frame_entrada, font=("Arial",11), widht=12, relief="solid", bd=1)
+        self.txt_preço.grid(row=0, column=5, padx=5, pady=5)
+
+        # ============ FRAME DE BOTÕES ===============
+        frame_botoes = tk.Frame(self.root, bg="#f0f4f8")
+        frame_botoes.pack(pady=10)
+
+        # Botão Inserir
+
+
         
