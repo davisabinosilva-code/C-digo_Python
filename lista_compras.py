@@ -47,4 +47,9 @@ class ListaComprasApp:
         tk.Label(frame_entrada, text="Quantidade: ", font=("Arial, 11"), bg="#f0f4f8", fg="#2c3e50").grid(row=0, column=2, padx=5, pady=5, sticky="e")
         self.txt_quantidade = tk.Entry(frame_entrada, font=("Arial",11), widht=10, relief="solid", bd=1)
         self.txt_quantidade.grid(row=0, column=3, padx=5, pady=5)
+
+        # Preço
+        tk.Label(frame_entrada, text="Preço: ", font=("Arial, 11"), bg="#f0f4f8", fg="#2c3e50").grid(row=0, column=4, padx=5, pady=5, sticky="e")
+        self.txt_quantidade = tk.Entry(frame_entrada, font=("Arial",11), widht=10, relief="solid", bd=1)
+        self.txt_quantidade.grid(row=0, column=5, padx=5, pady=5)
         
