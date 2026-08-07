@@ -68,3 +68,27 @@ class ListaComprasApp:
             command=self.inserir
         )
         self.btn_inserir.pack(side="left", padx=5)
+        
+        # Botão Editar
+        self.btn_editar = tk.button(
+            frame_botoes,
+            text="✏️ Editar"
+            font=("Arial", 11, "bold"),
+            bg="#f39c12", fg="white",
+            widht=12, cursor="hand2",
+            relief="flat",
+            command=self.editar
+        )
+        self.btn_editar.pack(side="left", pad=5)
+        
+        # Botão Deletar
+        self.btn_deletar = tk.button(
+            frame_botoes,
+            text="🗑️ Deletar"
+            font=("Arial", 11, "bold"),
+            bg="#e74c3c", fg="white",
+            widht=12, cursor="hand2",
+            relief="flat",
+            command=self.deletar
+        )
+        
