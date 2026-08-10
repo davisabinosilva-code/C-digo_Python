@@ -70,9 +70,9 @@ class ListaComprasApp:
         self.btn_inserir.pack(side="left", padx=5)
         
         # Botão Editar
-        self.btn_editar = tk.button(
+        self.btn_editar = tk.Button(
             frame_botoes,
-            text="✏️ Editar"
+            text="✏️ Editar",
             font=("Arial", 11, "bold"),
             bg="#f39c12", fg="white",
             widht=12, cursor="hand2",
@@ -82,13 +82,44 @@ class ListaComprasApp:
         self.btn_editar.pack(side="left", pad=5)
         
         # Botão Deletar
-        self.btn_deletar = tk.button(
+        self.btn_deletar = tk.Button(
             frame_botoes,
-            text="🗑️ Deletar"
+            text="🗑️ Deletar",
             font=("Arial", 11, "bold"),
             bg="#e74c3c", fg="white",
             widht=12, cursor="hand2",
             relief="flat",
             command=self.deletar
+        )
+        self.btn_deletar.pack(side="left", pad=5)
+
+        # Botão Limpar Campos
+        self.btn_limpar = tk.Button(
+            frame_botoes,
+            text="🧹 Limpar",
+            font=("Arial", 11, "bold"),
+            bg="#7f8c8d", fg="white",
+            widht=12, cursor="hand2",
+            relief="flat",
+            command=self.limpar_campos
+        )
+        self.btn_limpar.pack(side="left", pad=5)
+
+        # =============== LISTA DE ITENS (TREEVIEW) ===============
+        frame_lista = tk.Frame(self.root, bg="#f0f4f8")
+        frame_lista.pack(pady=10, padx=20, fill="both", expand=True)
+
+        # Scrollbar
+        scrollbar = tk.Scrollbar(frame_lista)
+        scrollbar.pack(side="right", fill="y")
+
+        # Treeview
+        colunas = ("descricao", "quantidade", "preco", "subtotal")
+        self.tree = ttk.Treeview(
+            frame_lista,
+            columns=colunas,
+            show="headings",
+            yscrollcommand=scrollbar.set,
+            height=10
         )
         
