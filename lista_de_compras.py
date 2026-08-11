@@ -122,4 +122,46 @@ class ListaComprasApp:
             yscrollcommand=scrollbar.set,
             height=10
         )
+        scrollbar.config(command=self.tree.yview)
         
+        # Configurar colunas
+        self.tree.heading("descricao", text="Descrição")
+        self.tree.heading("quantidade", text="Qtd")
+        self.tree.heading("preco", text="Preço Unit. (R$)")
+        self.tree.heading("subtotal", text="Subtotal (R$)")
+        
+        self.tree.column("descricao", width=250, anchor="w")
+        self.tree.column("quantidade", width=60, anchor="center")
+        self.tree.column("preco", width=120, anchor="e")
+        self.tree.column("subtotal", width=120, anchor="e")
+        
+        self.tree.pack(fill="both", expand=True)
+        
+        # Evento de seleção
+        self.tree.bind("<<TreeviewSelect>>", self.on_select)
+        
+        # ========== TOTAL =========
+        frame_total = tk.Frame(self.root, bg="#f0f4f8")
+        frame_total.pack(pady=10, padx=20, fill="x")
+        
+        self.lbl_total = tk.Label(
+            frame_total,
+            text="TOTAL: R$0,00",
+            font=("Arial", 16, "bold"),
+            bg="#f0f4f8",
+            fg="#1a5276"
+        )
+        self.lbl_total.pack(side="right")
+        
+        # ========== STATUS BAR =========
+        self.lbl_status = tk.label(
+            self.root,
+            text="Pronto. Selecione um item para editar ou deletar.",
+            font=("Arial", 9),
+            bg="#d5dbdb",
+            fg="#2c3e50",
+            anchor="w"
+        )
+        self.lbl_status.pack(fill="x", side="bottom")
+        
+
