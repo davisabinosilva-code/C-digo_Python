@@ -186,3 +186,22 @@ class ListaComprasApp:
             
             self.txt_preco.delete(0, tk.END)
             self.txt_preco.insert(0, valores[2].replace("R$ ", "").replace("R$ ", "").replace("R$ ", ""))
+            
+            self.item_selecionado = item_id
+            self.lbl_status.config(text=f"Item selecionado: {valores[0]}")
+            
+    def limpar_campos(self):
+        """Limpa todos os campos de entrada"""
+        self.txt_descricao.delete(0, tk.END)
+        self.txt_quantidade.delete(0, tk.END)
+        self.txt_preco.delete(0, tk.END)
+        self.item_selecionado= None
+        self.tree.selection_remove(self.tree.selection())
+        self.lbl_status.config(text="Campos limpos. Pronto para inserir novo item")
+        self.txt_descricao.focus()
+
+    def validar_entrada(self):
+        """Valida os campos de entrada"""
+        descricao = self.txt_descricao.get().strip()
+        quantidade = self.txt_quantidade.get().strip()
+        preco = self.txt_preco.get().strip()
