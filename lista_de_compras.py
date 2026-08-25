@@ -205,3 +205,43 @@ class ListaComprasApp:
         descricao = self.txt_descricao.get().strip()
         quantidade = self.txt_quantidade.get().strip()
         preco = self.txt_preco.get().strip()
+
+        if not descricao:
+            messagebox.showwarning("Aviso", "Digite a descrição do item!")
+            return None
+        
+        try:
+            qtd = float(quantidade.replace("," "."))
+            if qtd <= 0:
+                messagebox.showwarning("Aviso", "Quantidade deve ser maior que zero!")
+                return None
+        except ValueError:
+            messagebox.showwarning("Aviso", "Quantidade inválida!")
+            return None
+        
+        try:
+            prc = float(preco.replace(",", "."))
+            if prc < 0:
+                messagebox.showwarning("Aviso", "Preço não pode ser negativo!")
+            return None
+        except ValueError:
+            messagebox.showwarning("Aviso", "Preço inválido!")
+            return None
+        
+        return {"descricao": descricao, "quantidade": qtd, "preco": prc}
+    
+    def inserir(self):
+        """Insere um novo item na lista"""
+        dados = self.validar_entrada()
+        if not dados:
+            return
+        
+        self.itens.append(dados)
+        self.salvar_no_arquivo()
+        self.atualizar_lista()
+        self.limpar_campos()
+        self.lbl_status.config(text=f"Item '{dados['descricao']}' inserido com sucesso!")
+        messagebox.showinfo("Sucesso", f"Item '{dados['descricao']}' inserido!")
+
+    def editar(self):
+        """"""
