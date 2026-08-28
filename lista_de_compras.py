@@ -244,4 +244,30 @@ class ListaComprasApp:
         messagebox.showinfo("Sucesso", f"Item '{dados['descricao']}' inserido!")
 
     def editar(self):
-        """"""
+        """Edita o item selecionado"""
+        if not self.item_selecionado:
+            messagebox.showwarning("Aviso", "Selecione um item na lista para editar!")
+            return
+
+        dados = self.validar_entrada()
+        if not dados:
+            return
+
+        # Encontrar o índice do item selecionado
+        idx = self.tree.index(self.item_selecionado)
+        self.itens[idx] = dados
+
+        self.salvar_no_arquivo()
+        self.atualizar_lista()
+        self.limpar_campos()
+        self.lbl_status.config(text=f"Item '{dados['descricao']}' editado com sucesso!")
+        messagebox.showinfo("Sucesso", f"Item '{dados['descricao']}' atualizado!")
+
+    def deletar(self)
+        """Deleta o item selecionado"""
+        if not self.item_selecionado:
+            messagebox.showwarning("Aviso", "Selecione um item na lista paraa deletar!")
+            return
+
+        idx = self.tree.index(self.item_selecionado)
+        item_nome = self.itens[idx]["descrição"]
